@@ -27,7 +27,7 @@ function( design, dat, tau1, rho, n, where ) {
 
   for (i in 1:n){
  
-    d   <- random.bailey(design)                 # randomised design (rows and tratment labels)
+    d   <- random.RT(design)                 # randomised design (rows and tratment labels)
     dpr <- t(d)
     Tdd <- Td(d)                                 # treatment design matrix 
     Tddpr <- t(Tdd)

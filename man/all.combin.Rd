@@ -1,6 +1,6 @@
 \name{all.combin}
 \alias{all.combin}
-\title{Balanced Row-Column Design with all Possible Treatment Orders.}
+\title{Balanced Row-Column Design with all Possible Treatment Orders}
 \description{
   The function constructs a row-column design with subjects as rows and periods as columns. Each subject
   gets each treatment at most once. All possible treatment orders are assigned to the subjects. }

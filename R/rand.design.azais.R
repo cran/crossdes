@@ -15,7 +15,7 @@ function( design, dat, tau1, rho, n, where ) {
  
  
   Qt  <- Q.t(trt)                                # I_t - 1/t 1_t 1_t'                  
-  kron<- kronecker( diag(b), Q.t (k) )           # Corrects for row and column effects 
+  kron<- kronecker( diag(b), Q.t (k) )           # Corrects for block effects
   
   fg  <- b*(k-1)-trt+1                           # Model degrees of freedom
 
@@ -28,7 +28,7 @@ function( design, dat, tau1, rho, n, where ) {
 
   for (i in 1:n){
  
-    d   <- random.azais(design)                  # randomized design (rows and tratment labels)
+    d   <- random.AZ(design)                  # randomized design (rows and tratment labels)
     dpr <- t(d)
     Tdd <- Td(d)                                 # treatment design matrix 
     Tddpr <- t(Tdd)

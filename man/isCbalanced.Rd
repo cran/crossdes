@@ -1,6 +1,6 @@
 \name{isCbalanced}
 \alias{isCbalanced}
-\title{ Checking Block Designs for Carryover Balance }
+\title{Checking Block Designs for Carryover Balance}
 \description{
    The function checks whether a block design is balanced for first order carryover effects (residual effects).
    The user specifies whether there is a preperiod. The design is checked and the left neighbour incidence matrix is given.  

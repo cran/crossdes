@@ -1,5 +1,5 @@
 "get.plan" <-
-function(trt, k=trt, maxsub=1000){
+function(trt, k=trt, maxsub=1000, random=TRUE){
    
  if( trt<2 ){stop("Number of treatments must be at least 2")}
  if( (k<2)||(k>trt) ){stop("Number of periods must be larger than one and no larger than the number of treatments.")}
@@ -7,9 +7,9 @@ function(trt, k=trt, maxsub=1000){
   primep100 <- c(2,3,4,5,7,8,9,11,13,16,17,19,23,25,27,29,31,32,37,41,43,47,49,53,59,
       61,64,67,71,73,79,81,83,89,97) 
   
-  choi <- choices(trt,k,maxsub)        # get possible methods of construction for the specified parameters
+  choi <- choices(trt,k,maxsub)        # Get possible methods of construction for the specified parameters
   if (!sum(choi[[1]])){
-                                       # get new parameters, until there is at least one feasible method
+                                       # Get new parameters, until there is at least one feasible method
     while(!sum(choi[[1]])){
       dummy <- menu( c("Increase the maximum number of subjects", "Choose a different value of k", "Exit"), 
         title=cat("\n","I don't have a design for just",maxsub,"subjects.",
@@ -47,11 +47,9 @@ function(trt, k=trt, maxsub=1000){
   cat(replic, "replicate(s) chosen","\n") 
                                        # Choose the number of "replicates", determining the number of subjects 
                                        # which is replic*choi[[2]][construct].
-                                       # Those aren't true replicates. There are new subjects assigned to
-                                       # the replicates. They do not correspond to replications of the actual experiment.  
-  
- # Now we can construct/generate the design
- # Let's start with one replicate 
+                                       # Additional subjects are assigned to the replicates. 
+                                       
+# Generate the design
   
 #  if( construct==3){ 
 #    primefact<-matrix( c(2,3,2,5,7,2,3,11,13,2,17,19,23,5,3,29,31,2,37,41,43,47,7,53,59,
@@ -65,27 +63,25 @@ function(trt, k=trt, maxsub=1000){
     bibdsub <- ifelse( !(k%%2), (choi[[2]][construct])/k, (choi[[2]][construct])/(2*k) )                                         
                                        # Note in Method 4: choi[[2]][con..] is the number of subjects for the resulting design,
                                        # the BIBD has only this number divided by k resp. 2k subjects.
-    lookforBIB <- find.BIB(trt,bibdsub,k, check=FALSE )
-    if( !all(isGYD(lookforBIB,TRUE,FALSE,TRUE)[1:4]) ){
+    lookforBIB <- find.BIB( trt, bibdsub, k )
+    if( !all(isGYD(lookforBIB,FALSE,FALSE)[[1]][1:4]) ){
       stop("Sorry. No BIBD found for these parameters. Please try again.")}
   } 
 
   des <- switch( construct, all.combin(trt,k), williams(trt), des.MOLS(trt,k), 
     williams.BIB(lookforBIB), balmin.RMD(trt,choi[[2]][construct],k) )
-
   
- # Now replicate the design as requested
+# Now replicate the design as requested
+ 
   if(replic>1){ des <- kronecker( rep(1,replic), des) }
- 
- ###                                        RANDOMIZATION                                   ###
- 
- # Randomize rows (subjects) and treatment labels!
   
-  des <- random.bailey(des)
+# Randomize rows (subjects) and treatment labels if random is TRUE and print the design
   
- # Print the design
+  if( random ){ 
+    des <- random.RT(des) 
+    cat("Row and treatment labels have been randomized.","\n") }
   
-  cat("\n","Row and treatment labels have been randomized. Rows represent subjects, columns represent periods.","\n","\n")
+  cat("Rows represent subjects, columns represent periods.","\n","\n")
   
   des
     

@@ -5,10 +5,7 @@ function(p,n){
       61,67,71,73,79,83,89,97)
   if (!(p %in% primen100)){stop("p is not a prime number less than 100.")}
 
-  # Now obsolete:
-  # require(conf.design)
-  # if( (p%%1) || (p < 2) ){stop("p is not a prime number.")}
-  # if( primes(p)[length(primes(p))]!=p ){stop("p is not a prime number.")}
+  # Now obsolete: require(conf.design); if( (p%%1) || (p < 2) ){stop("p is not a prime number.")}; if( primes(p)[length(primes(p))]!=p ){stop("p is not a prime number.")}
 
   if( (n%%1) || (n < 1) ){stop("n is not a positive integer.")}
 

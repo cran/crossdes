@@ -47,7 +47,7 @@ rand.design.RC(design, dat, tau1, rho, n, where)
 \dontrun{ 
 # First create a data set to analyze:
 d <- matrix(c(1:4,2:4,1,4,1:3,3,4,1,2),ncol=4)
-rand.design.RC( d, rnorm(16), 1000, "D:\\mytest.txt", -1, 1 )
+rand.design.RC( d, rnorm(16), -1, 1, 1000, "D:\\mytest.txt" )
 # Now do the analysis:
 analyze.rand( "D:\\mytest.txt", fig=TRUE, ref=TRUE, 
  refval=c(0, -1, 0, -1, -.25, -1.25) ) 

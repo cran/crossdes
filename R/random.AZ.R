@@ -9,4 +9,4 @@ function( d ){
     }
   d <- d[sample(b),]                        # Permutes rows
   a <- sample(trt)                          # Permutes treatment labels
-  list(matrix(a[d],nc=k),a)}
+  matrix(a[d],nc=k)}

@@ -14,6 +14,6 @@ function(a,b){
    dummy[i:(i+lb-1)] <- a[i]*b1
    a <- a - dummy
  } 
- m <- a[(la-lb+2):la]
- m  
+ a[(la-lb+2):la]
+  
 }

@@ -1,7 +1,7 @@
 \name{biertest.d4}
 \alias{biertest.d4}
 \docType{data}
-\title{ Experimental Design for the Beer Testing Data in Kunert (1998)}
+\title{Experimental Design for the Beer Testing Data in Kunert (1998)}
 \description{
   The design is a balanced incomplete block design with rows 
   as blocks. If one assumes that there is a preperiod, i.e. that each assessor is given the treatment of the fifth period

@@ -1,20 +1,19 @@
 \name{find.BIB}
 \alias{find.BIB}
-\title{ Generation of Balanced Incomplete Block Designs Using the Package AlgDesign }
+\title{Generation of Balanced Incomplete Block Designs Using the Package AlgDesign}
 \description{
   The function \code{optBlock} of the library \code{AlgDesign} is used to search for balanced incomplete block designs
   (BIBDs). The design is assigned to a matrix where rows represent blocks (subjects) and 
   columns represent periods.  
 }
 \usage{
-find.BIB(trt, b, k, iter = 30, check = TRUE)
+find.BIB(trt, b, k, iter = 30)
 }
 \arguments{
   \item{trt}{ An integer > 1 giving the number of treatments of the design. }
   \item{b}{ An integer > 1 giving the number of rows (subjects) of the design. }
   \item{k}{ An integer > 1 giving the number of columns (periods) of the design. }
-  \item{iter}{ The number of iterations of the function \code{optBlock} }
-  \item{check}{ Logical flag. Set to \code{FALSE} only if no checks for BIBD are desired. }  
+  \item{iter}{ The number of iterations of the function \code{optBlock} } 
 }
 \details{
   The function \code{optBlock} tries to find a D-optimal block design for the specified parameters.
@@ -25,8 +24,7 @@ find.BIB(trt, b, k, iter = 30, check = TRUE)
   Even if they are fulfilled, there need not be a BIBD.  
   If no BIBD is found, the function is iterated.
   If no BIBD is found after \code{iter} iterations, the search is terminated.
-  The resulting design may be checked by the function \code{isGYD} and the result 
-  displayed on the screen. The resulting design matrix is returned. 
+  The resulting design should be checked by the user applying \code{isGYD}. 
 }
 \value{
   A matrix that represents the experimental design.
@@ -42,6 +40,7 @@ find.BIB(trt, b, k, iter = 30, check = TRUE)
 find.BIB(10,30,4)       # BIBD
 find.BIB(3,3,3)         # BIBD 
 find.BIB(5,5,3, 100)    # There is no BIBD for these parameters   
+# isGYD(find.BIB(5,5,3, 100))
 }
 
 \keyword{ design }% at least one, from doc/KEYWORDS

@@ -1,13 +1,13 @@
 \name{des.MOLS}
 \alias{des.MOLS}
-\title{ Construction of Designs Based on Mutually Orthogonal Latin Squares}
+\title{Construction of Designs Based on Mutually Orthogonal Latin Squares}
 \description{
   The function constructs row-column designs based on complete sets of mutually orthogonal latin squares.
   Each subject may get each tratment at most once. The design is a generalized Youden design that is also 
   balanced for carryover effects.
 }
 \usage{
-des.MOLS(trt, k)
+des.MOLS(trt, k = trt)
 }
 \arguments{
   \item{trt}{ A prime power less than 100. The number of treatments (products) to be tested. }

@@ -1,7 +1,7 @@
 \name{biertest.dat}
 \alias{biertest.dat}
 \docType{data}
-\title{ The Beer Testing Data in Kunert (1998)}
+\title{The Beer Testing Data in Kunert (1998)}
 \description{
   The data comes from a beer testing experiment where assessors had to rate
   the bitterness of five beers.    

@@ -1,4 +1,4 @@
-"random.bailey" <-
+"random.RT" <-
 function( d ){
   trt <- max(d)
   b   <- nrow(d)

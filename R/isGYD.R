@@ -1,5 +1,5 @@
 "isGYD" <-
-function(d, invis=FALSE, tables=FALSE, coded=FALSE){
+function(d, tables=FALSE, type=TRUE){
 
   rows <- design.row(d)                       # Analyze d w.r.t. rows
   cols <- design.row(t(d))                    # Analyze d w.r.t. columns 
@@ -7,7 +7,7 @@ function(d, invis=FALSE, tables=FALSE, coded=FALSE){
   cols4 <- cols[[4]]
   dummy<-TRUE
 
-  if (!invis){
+  if (type){
     
     cat("\n")
     if( all(c(rows4[c(1:3,5)],cols4[c(1:3,5)])) )
@@ -63,13 +63,11 @@ function(d, invis=FALSE, tables=FALSE, coded=FALSE){
   
   # Tables and characteristica of the design
 
-  out <- list(rows[[1]],rows[[2]],cols[[2]],rows[[3]],cols[[3]])
-  names(out) <- c("Number of occurences of treatments in d", "Row incidence matrix of d", "Column incidence matrix of d",
-   "Rows with occurences of pairs", "Columns with occurences of pairs" )  
+  outtables <- list(rows[[1]],rows[[2]],cols[[2]],rows[[3]],cols[[3]])
+  names(outtables) <- c("Number of occurrences of treatments in d", "Row incidence matrix of d", "Column incidence matrix of d",
+   "Concurrence w.r.t. rows", "Concurrence w.r.t. columns" )  
 
-  typeout <- c(rows4,cols4) 
-
-  if(tables){ print(out) }
-  if(coded){ typeout }
+  if(tables){ print(outtables) }
+  invisible( c(list(rows4,cols4),outtables) )
 
 }

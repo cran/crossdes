@@ -24,10 +24,10 @@ function( d, preperiod=FALSE ){
   
   if( !any(diag(M)) && length(unique(as.vector(M-2*b*k*diag(trt))))==2 )
     { balance <- TRUE
-      cat("The design is carry-over balanced.", "\n","\n") 
+      cat("The design is (first order) carry-over balanced.", "\n","\n") 
     }
   else
-    { cat("The design is not carry-over balanced.", "\n","\n") }
+    { cat("The design is not (first order) carry-over balanced.", "\n","\n") }
                              # If M is completely symmetric and the diagonal of M is zero then d is 
                              # neighbourbalanced. Hence, if the diagonal is zero and 
                              # length(unique(as.vector(M-2*b*k*diag(trt)))) [negative diagonal!]

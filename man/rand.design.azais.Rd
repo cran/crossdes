@@ -55,7 +55,7 @@ rand.design.azais(design, dat, tau1, rho, n, where)
 \dontrun{ 
 # First create a data set to analyze:
 d <- matrix(c(1,1,1,2,2,3,4,4,3,4,2,3),ncol=3)
-rand.design.azais( d, rnorm(12), 1000, "D:\\mytest.txt", -1, 1 )
+rand.design.azais( d, rnorm(12), -1, 1, 1000, "D:\\mytest.txt" )
 # Now do the analysis:
 analyze.rand( "D:\\mytest.txt", fig=TRUE, ref=TRUE, 
  refval=c(0, -1, 0, -1, -.5, -1.5) ) 

@@ -1,7 +1,7 @@
 \name{biertest.f2}
 \alias{biertest.f2}
 \docType{data}
-\title{ Experimental Design for the Beer Testing Data in Kunert (1998)}
+\title{Experimental Design for the Beer Testing Data in Kunert (1998)}
 \description{
   The design is a row-column design. It is actually a generalized latin square design that is also carryover balanced. 
 }

@@ -1,5 +1,5 @@
 "find.BIB" <-
-function( trt,b,k,iter=30,check=TRUE ){
+function( trt,b,k,iter=30 ){
 
  require(AlgDesign)
 
@@ -10,9 +10,8 @@ function( trt,b,k,iter=30,check=TRUE ){
    i <- i+1 
    dummy <- optBlock(~.,withinData=factor(1:trt),blocksize=rep(k,b))
    des <- matrix(dummy$rows,byrow=TRUE,nc=k)
-   BIB <- all(isGYD(des,TRUE,FALSE,TRUE)[1:4])
+   BIB <- all(isGYD(des,FALSE,FALSE)[[1]][1:4])
  }
- if( check ){ isGYD(des) }
  des
 }
  

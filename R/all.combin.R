@@ -1,5 +1,5 @@
 "all.combin" <-
-function(trt,k){
+function(trt,k=trt){
  
   require(gtools)
 

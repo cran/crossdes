@@ -82,11 +82,11 @@ function(where, fig=FALSE, ref=FALSE, refval=numeric(6), reftext="Reference Valu
     if (fig) {
       
       x11()
-      qqnorm(vardiff,main=paste("Normal Q-Q Plot of var - vâr, Case",i), pch=pch1, ...) 
+      qqnorm(vardiff,main=paste("Normal Q-Q Plot of var - vâr, case",i), pch=pch1, ...) 
                                                  # q-q-plot of the difference of variance estimates
                                                  
       x11()
-      qqnorm(contrast, main =paste("Normal Q-Q Plot of tau_1 - tau_5, Case",i),
+      qqnorm(contrast, main =paste("Normal Q-Q Plot of tau_1 - tau_5, case",i),
        xlab = "Theoretical Quantiles", ylab = "Sample Quantiles", pch=pch2, ...)
                                                  # q-q-plot of the contrasts for all 6 cases 
                                                    
@@ -113,7 +113,7 @@ function(where, fig=FALSE, ref=FALSE, refval=numeric(6), reftext="Reference Valu
   names(out) <- c("Table 1", "Table 2")
 
   cat("\n")
-  print(out)
+  return(out)
   cat("\n")                                 
   
 }
