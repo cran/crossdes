@@ -1,14 +1,13 @@
-\name{balminRMD}
-\alias{balminRMD}
+\name{balmin.RMD}
+\alias{balmin.RMD}
 \title{Function to construct the balanced minimal 
        repeated measurements designs of Afsarinejad (1983)}
 \description{
   The function constructs a row-column design with subjects as rows and periods as columns. The design is incomplete, i.e.
   no subject gets all the treatments. The design is balanced for carryover effects but will in general not be
   a balanced block design.}
-\
 \usage{
-balminRMD(trt, n, p)
+balmin.RMD(trt, n, p)
 }
 \arguments{
   \item{trt}{ An integer >1 giving the number of treatments (products) to be tested. }
@@ -37,8 +36,8 @@ balminRMD(trt, n, p)
 
 \seealso{ \code{\link{get.plan}} }
 \examples{
-balminRMD(10,30,4) # a balanced minimal RMD
-balminRMD(11,22,6) # another balanced minimal RMD
+balmin.RMD(10,30,4) # a balanced minimal RMD
+balmin.RMD(11,22,6) # another balanced minimal RMD
 }
     
 

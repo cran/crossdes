@@ -9,7 +9,7 @@
 }
 \usage{
 analyze.rand(where, fig = FALSE, ref = FALSE, refval = numeric(6),
-    reftext = "Reference Value", pch1 = 46, col1 = "red",
+    reftext = "Reference Value", pch1 = 1, pch2 = 46, col1 = "red",
     col2 = "black", ...)
 }
 \arguments{
@@ -21,7 +21,9 @@ analyze.rand(where, fig = FALSE, ref = FALSE, refval = numeric(6),
                  This is set automatically to the true values of the contrast if \code{ref} is FALSE. }
   \item{reftext}{ Character string that contains the legend text in a graph displaying the location of the estimated
                   contrast and the corresponding reference value. }
-  \item{pch1}{ A scalar that corresponds to the plotting character in the Q-Q-Plot of the estimated contrast that is
+  \item{pch1}{ A scalar that corresponds to the plotting character in the Q-Q-Plot of the difference of variance 
+               estimates that is displayed if \code{fig} is TRUE. }
+  \item{pch2}{ A scalar that corresponds to the plotting character in the Q-Q-Plot of the estimated contrast that is
                displayed if \code{fig} is TRUE. }
   \item{col1}{ The colour of the theoretical CDF in the CDF-Plots that are displayed if \code{fig} is TRUE
            Also the colour of the reference values described above. }

@@ -1,7 +1,7 @@
 "design.row" <-
 function(d){
 
-  require(combinat)
+  require(gtools)
 
   if(!is.matrix(d) || !is.numeric(d)){stop("Please check your design matrix")}
   trt <- max(d)
@@ -16,12 +16,12 @@ function(d){
   occ   <- diag(t(td)%*%td)                      # Number of occurences of treatments in design d
   rinc  <- t(bd)%*%td                            # Row-incidence matrix
 
-if( (min(rinc) < a1-1) | (max(rinc) > a1) )
-  { bin.row<-FALSE }
-else
-  { bin.row<-TRUE }                              # TRUE if the design is binary w.r.t rows
+{ if( (min(rinc) < a1-1) | (max(rinc) > a1) )
+    { bin.row<-FALSE } 
+  else
+    { bin.row<-TRUE }}                           # TRUE if the design is binary w.r.t rows
     
-  pairwise<-rinc[,combn(trt,2)]        
+  pairwise<-rinc[,t(combinations(trt,2))]        
   sumpair<-matrix(0,b,trt*(trt-1)/2)
   for (i in 1:(trt*(trt-1)/2)){
     for (j in 1:b){                       

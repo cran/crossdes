@@ -1,5 +1,6 @@
 "tcdf.plot" <-
-function( empirical, n, nu, titel="", xaxis="", ltytheor=2, col1="red", col2="black", ... ){  
+function( empirical, n, nu, title="", xlab="", ylab="Cumulative Distribution Function",
+    ltyempir=1, ltytheor=2, col1="red", col2="black", lwd=2, ... ){  
  
   x<-((1:n)-.5)/n                                # Compute quantiles at these values
 
@@ -10,12 +11,14 @@ function( empirical, n, nu, titel="", xaxis="", ltytheor=2, col1="red", col2="bl
 
   plot( c( qt(au,nu)-1, qt(x,nu), qt(ao,nu)+1), c(0,x,1), 
     xlim=c( min(qt(au,nu),bu)-1, max(qt(ao,nu),bo)+1 ), 
-    type="l", col = col1, xlab= xaxis, ylab="Cumulative distribution function", main=titel,lwd=2,lty=ltytheor, ...)  
+    main=title, xlab=xlab, ylab=ylab,
+    type="l", lty=ltytheor, lwd=lwd, col = col1, ...)  
                                                  # (theoretical) CDF
 
-  lines( c(bu-1,sort(empirical),bo+1), c(0,x,1), type="l", col=col2,lwd=2 )  
+  lines( c(bu-1,sort(empirical),bo+1), c(0,x,1), type="l", lty=ltyempir, lwd=lwd, col=col2 )  
                                                  # empirical CDF
   
-  legend( min(qt(au,nu),bu)-.75, .95, c("empirical","t"),lty=c(1,ltytheor),lwd=2,col=c(col2,col1) )
+  legend( min(qt(au,nu),bu)-.75, .95, c("empirical","t"), 
+    lty=c(ltyempir,ltytheor), lwd=lwd, col=c(col2,col1) )
 
 }

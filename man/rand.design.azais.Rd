@@ -6,7 +6,7 @@
   validates the simple block model for a given design. The results are stored to a file. 
 }
 \usage{
-rand.design.azais(design, dat, n, where, tau1, rho)
+rand.design.azais(design, dat, tau1, rho, n, where)
 }
 
 \arguments{
@@ -15,10 +15,10 @@ rand.design.azais(design, dat, n, where, tau1, rho)
   \item{dat}{ A numerical vector with \eqn{bk}{bk} elements giving the data to be used for the simulation study.
               The first \eqn{k}{k} values of \code{dat} correspond to the first row of the design,
               the next \eqn{k}{k} values correspond to the second row etc. }
-  \item{n}{ The number of permutations in the simulation study. }
-  \item{where}{ Path that gives the location of the simulation results.}
   \item{tau1}{ The value of the main effect of treatment 1. }
   \item{rho}{ The value that is used for the carryover (residual) effects of treatments 1 and 2. }
+  \item{n}{ The number of permutations in the simulation study. }
+  \item{where}{ Path that gives the location of the simulation results.}
 }
 \details{
   The simulation study proceeds as follows:

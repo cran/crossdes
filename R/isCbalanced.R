@@ -33,7 +33,7 @@ function( d, preperiod=FALSE ){
                              # length(unique(as.vector(M-2*b*k*diag(trt)))) [negative diagonal!]
                              # is two then d is carry-over balanced.
   
-  cat("Left neighbour incidence matrix (i is left neighbour of j)","\n","\n")
+  cat("Left neighbour incidence matrix M_ij (i is left neighbour of j)","\n","\n")
   print(M)
   invisible(list(balance, M))  
   

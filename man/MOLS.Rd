@@ -9,7 +9,7 @@
 MOLS(p, n, primpol = GF(p, n)[[2]][1, ])
 }
 \arguments{
-  \item{p}{ A prime number. }
+  \item{p}{ A prime number less than 100. }
   \item{n}{ A positive integer.}
   \item{primpol}{ A primitive polynomial of the Galois Field GF(\eqn{p^n}{p^n}).}
 }

@@ -1,10 +1,15 @@
 "GF" <-
 function(p,n){
 
-  require(conf.design)
+  primen100 <- c(2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,
+      61,67,71,73,79,83,89,97)
+  if (!(p %in% primen100)){stop("p is not a prime number less than 100.")}
 
-  if( (p%%1) || (p < 2) ){stop("p is not a prime number.")}
-  if( primes(p)[length(primes(p))]!=p ){stop("p is not a prime number.")}
+  # Now obsolete:
+  # require(conf.design)
+  # if( (p%%1) || (p < 2) ){stop("p is not a prime number.")}
+  # if( primes(p)[length(primes(p))]!=p ){stop("p is not a prime number.")}
+
   if( (n%%1) || (n < 1) ){stop("n is not a positive integer.")}
 
   ord <- p^n                                     # order of the field 
@@ -30,10 +35,8 @@ function(p,n){
        h[,i+1] <- (a + g[,n+1])%%p
      }
      
-     irr <- g[apply(h,1,all),]
-     if(is.vector(irr))
-       { irr <- matrix(irr,nrow=1) }
-   
+     irr <- g[apply(h,1,all),,drop=FALSE]
+
      # Get the primitive roots. For all polynomials compute : p^1,p^2,...,p^(ord-1).
      # Cycle is completed after at most ord-1 powers. If ord-1 powers are needed, a primitive root is found.
      # Look for smallest power of p that has coefficients equal to (0,...,0,0,1).
@@ -57,9 +60,8 @@ function(p,n){
        }
      }
     
-     primpol <- irr[which(z1==(ord-1)),]            
-     if (is.vector(primpol)){ primpol <- t(as.matrix(primpol)) } 
-    
+     primpol <- irr[which(z1==(ord-1)),,drop=FALSE]            
+
      elemente <- matrix(0,ord,n,byrow=TRUE)
      elemente[2,n] <- 1                          # 1st element is =0,...,0; 2nd element is 0,...0,1;
      elemente[3,n-1] <- 1                        # 3rd element ist =0,..,0,1,0.

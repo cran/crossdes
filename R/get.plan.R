@@ -26,12 +26,12 @@ function(trt, k=trt, maxsub=1000){
     }
   }
 
-  choichar <- c( "All combinations", "Williams", "MOLS", "Patterson", "no BBD needed" )[choi[[1]]]
+  choichar <- c( "all.combin", "williams", "des.MOLS", "williams.BIB", "balmin.RMD" )[choi[[1]]]
   cat("Possible constructions and minimum numbers of subjects:","\n")
   showchoices <- rbind( choichar, choi[[2]][choi[[1]]] )   
   rownames(showchoices)<-c("Method: ","Number: ")
-  colnames(showchoices)<-NULL
-  print(showchoices)
+  colnames(showchoices)<-1:sum(choi[[1]])
+  print(showchoices, quote=FALSE)
   cat("\n")
                                                                                         
   nextchoi <- menu( c(choichar,"Exit"), title="Please choose one of the following constructions" ) 
@@ -39,13 +39,12 @@ function(trt, k=trt, maxsub=1000){
 
   if ( nextchoi==(length(choichar)+1) ){ stop("Exit function") }
 
-  construct <- which( c( "All combinations", "Williams", "MOLS", "Patterson", "no BBD needed" )==choichar[nextchoi] )  
+  construct <- which( c( "all.combin", "williams", "des.MOLS", "williams.BIB", "balmin.RMD" )==choichar[nextchoi] )  
   maxsubchoicon <- maxsub %/% choi[[2]][construct]
   cat(choichar[nextchoi], "selected. How many 'replicates' do you wish (1 -", maxsubchoicon,")?","\n")
   replic <- .Internal(menu(as.character(1:maxsubchoicon)))
-  if (replic > maxsubchoicon) {
-    replic <- maxsubchoicon
-    cat(maxsubchoicon, "replications chosen","\n") }
+  if (replic > maxsubchoicon) { replic <- maxsubchoicon }
+  cat(replic, "replicate(s) chosen","\n") 
                                        # Choose the number of "replicates", determining the number of subjects 
                                        # which is replic*choi[[2]][construct].
                                        # Those aren't true replicates. There are new subjects assigned to
@@ -54,24 +53,29 @@ function(trt, k=trt, maxsub=1000){
  # Now we can construct/generate the design
  # Let's start with one replicate 
   
-  if( choi[[1]][3]){ 
-  primefact<-matrix( c(2,3,2,5,7,2,3,11,13,2,17,19,23,5,3,29,31,2,37,41,43,47,7,53,59,
-    61,2,67,71,73,79,3,83,89,97, 1,1,2,1,1,3,2,1,1,4,1,1,1,2,3,1,1,5,1,1,1,1,2,1,1,1,6,1,1,1,1,4,1,1,1),ncol=2) 
-  trtpp <- primefact[primep100==trt,]
-  }
-                                       # The primepowers in primep100, in the representation p^n
-                                       # This is used in des.MOLS (and MOLS). 
-                                           
-  bibdsub <- ifelse( !(k%%2), (choi[[2]][construct])/k, (choi[[2]][construct])/(2*k) )                                         
+#  if( construct==3){ 
+#    primefact<-matrix( c(2,3,2,5,7,2,3,11,13,2,17,19,23,5,3,29,31,2,37,41,43,47,7,53,59,
+#      61,2,67,71,73,79,3,83,89,97, 1,1,2,1,1,3,2,1,1,4,1,1,1,2,3,1,1,5,1,1,1,1,2,1,1,1,6,1,1,1,1,4,1,1,1),ncol=2) 
+#    trtpp <- primefact[primep100==trt,]
+#  }
+#                                      # The primepowers in primep100, in the representation p^n
+#                                      # This was formerly used in des.MOLS. 
+                    
+  if( construct==4){                                                   
+    bibdsub <- ifelse( !(k%%2), (choi[[2]][construct])/k, (choi[[2]][construct])/(2*k) )                                         
                                        # Note in Method 4: choi[[2]][con..] is the number of subjects for the resulting design,
                                        # the BIBD has only this number divided by k resp. 2k subjects.
+    lookforBIB <- find.BIB(trt,bibdsub,k, check=FALSE )
+    if( !all(isGYD(lookforBIB,TRUE,FALSE,TRUE)[1:4]) ){
+      stop("Sorry. No BIBD found for these parameters. Please try again.")}
+  } 
 
-  des <- switch( construct, all.combin(trt,k), williams(trt), des.MOLS(trtpp,k), 
-    williams.BIB(opttodes(trt,bibdsub,k)), balminRMD(trt,choi[[2]][construct],k) )
+  des <- switch( construct, all.combin(trt,k), williams(trt), des.MOLS(trt,k), 
+    williams.BIB(lookforBIB), balmin.RMD(trt,choi[[2]][construct],k) )
 
   
  # Now replicate the design as requested
-  des <- kronecker( rep(1,replic), des)
+  if(replic>1){ des <- kronecker( rep(1,replic), des) }
  
  ###                                        RANDOMIZATION                                   ###
  
@@ -81,7 +85,7 @@ function(trt, k=trt, maxsub=1000){
   
  # Print the design
   
-  cat("\n","The design has been properly randomized. Rows represent subjects, columns represent periods.","\n","\n")
+  cat("\n","Row and treatment labels have been randomized. Rows represent subjects, columns represent periods.","\n","\n")
   
   des
     

@@ -1,6 +1,6 @@
 "analyze.rand" <-
 function(where, fig=FALSE, ref=FALSE, refval=numeric(6), reftext="Reference Value", 
- pch1=46, col1="red", col2="black",  ...){
+ pch1=1, pch2=46, col1="red", col2="black",  ...){
 
   if(!(ref %in% c("azais","bailey","contrast","other"))){
    "Please choose a different reference value for the mean of the estimated contrast"}
@@ -81,17 +81,18 @@ function(where, fig=FALSE, ref=FALSE, refval=numeric(6), reftext="Reference Valu
  
     if (fig) {
       
-    
       x11()
-      qqnorm(vardiff,main=paste("Normal Q-Q Plot of var - vâr, Case",i), ...) # q-q-plot of the difference of variance estimates
+      qqnorm(vardiff,main=paste("Normal Q-Q Plot of var - vâr, Case",i), pch=pch1, ...) 
+                                                 # q-q-plot of the difference of variance estimates
+                                                 
       x11()
       qqnorm(contrast, main =paste("Normal Q-Q Plot of tau_1 - tau_5, Case",i),
-       xlab = "Theoretical Quantiles", ylab = "Sample Quantiles", pch=pch1, ...)
+       xlab = "Theoretical Quantiles", ylab = "Sample Quantiles", pch=pch2, ...)
                                                  # q-q-plot of the contrasts for all 6 cases 
                                                    
       x11()
       tcdf.plot(tstat,n,fg,paste("Empirical cumulative distribution function","\n","of the t-statistic, case",i),
-       "x", 2, col1=col1, col2=col2, ...)
+       "x", col1=col1, col2=col2, ...)
                                                  # Comparison of the empirical CDF of the t-statistics
                                                  # with the CDF of the t distribution
                 
@@ -103,7 +104,6 @@ function(where, fig=FALSE, ref=FALSE, refval=numeric(6), reftext="Reference Valu
                                                  # Histogram of the contrast estimates
       abline(v=refval[i],col=col1)
       legend( min(contrast),1.1*max(histogr$co), reftext ,lty=1,col=col1)
-                                                 # At least for GYD (???)
     }
   }
   

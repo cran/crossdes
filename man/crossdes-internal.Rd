@@ -21,8 +21,7 @@ design.row(d)
 }
 \author{ Oliver Sailer \email{sailer@statistik.uni-dortmund.de}}
 
-\note{ The function \code{design.row} requires the library \code{combinat}. The functions \code{GF}
- and \code{MOLS}
- use the library conf.design. }
+\note{ The function \code{design.row} requires the library \code{gtools}. 
+}
 
 \keyword{internal}

@@ -31,13 +31,13 @@ Wakeling, I.N. and MacFie, H.J.H. (1995): Designing consumer trials balanced for
 carry-over effect when only a subset of k samples from t may be tested. Food Quality and Preference 6, 299-308. 
 }
 \author{ Oliver Sailer \email{sailer@statistik.uni-dortmund.de}}
-\note{  BIBDs may be generated using \code{opttodes}. }
+\note{  BIBDs may be generated using \code{find.BIB}. }
 
 \section{Warning }{ The resultig design is only balanced properly if the input design actually is a BIBD.
  This is NOT checked automatically. You have to do this by yourself, e.g. by applying \code{isGYD} to your design.
 } 
 
-\seealso{  \code{\link{get.plan}}, \code{\link{isGYD}}, \code{\link{opttodes}}, \code{\link{williams}} }
+\seealso{  \code{\link{get.plan}}, \code{\link{isGYD}}, \code{\link{find.BIB}}, \code{\link{williams}} }
 \examples{
 d <- matrix( rep(1:3,each=2), ncol=2)
 # # check for balance

@@ -1,10 +1,15 @@
 "MOLS" <-
 function(p,n,primpol=GF(p,n)[[2]][1,]){
 
-  require(conf.design)
+  primen100 <- c(2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,
+      61,67,71,73,79,83,89,97)
+  if (!(p %in% primen100)){stop("p is not a prime number less than 100.")}
 
-  if( ((p%%1) != 0) || (p < 2) ){stop("p is not a prime number.")}
-  if( primes(p)[length(primes(p))]!=p ){stop("p is not a prime number.")}      # here library(conf.design) is needed!
+  # Now obsolete:
+  # require(conf.design)
+  # if( (p%%1) || (p < 2) ){stop("p is not a prime number.")}
+  # if( primes(p)[length(primes(p))]!=p ){stop("p is not a prime number.")}
+  
   if( ((n%%1) != 0) || (n < 1) ){stop("n is not a positive integer.")}
 
   ord <- p^n                                     # order of the field

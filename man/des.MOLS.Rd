@@ -10,9 +10,7 @@
 des.MOLS(trt, k)
 }
 \arguments{
-  \item{trt}{ A numerical vector of length two. The first element is a prime number,
-              the second a positive integer such that \eqn{ {trt[1]}^{trt[2]} }{trt[1]^trt[2]} is the
-              number of treatments (products) to be tested. }
+  \item{trt}{ A prime power less than 100. The number of treatments (products) to be tested. }
   \item{k}{ An integer \eqn{\leq \, trt}{<= trt}. Number of periods for each subject. }
 }
 \details{
@@ -36,13 +34,13 @@ Williams, E. J. (1949): Experimental designs balanced for the estimation of resi
 of treatments. Australian Journal of Scientific Research, Ser. A 2, 149-168. 
 }
 \author{ Oliver Sailer \email{sailer@statistik.uni-dortmund.de}}
-\note{ Requires the package \code{conf.design} to check whether the number of treatments is a prime power. }
-
+%\note{ Requires the package \code{conf.design} to check whether the number of treatments is a prime power. }
+%
 
 \seealso{ \code{\link{get.plan}}, \code{\link{MOLS}} }
 \examples{
-des.MOLS(c(7,1),7)
-des.MOLS(c(2,3),5)
+des.MOLS(7,7)
+des.MOLS(8,5)
 }
 
 \keyword{ design }% at least one, from doc/KEYWORDS

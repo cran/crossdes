@@ -1,7 +1,7 @@
 "all.combin" <-
 function(trt,k){
  
-  require(gregmisc)
+  require(gtools)
 
   permutations(trt,k)
 }

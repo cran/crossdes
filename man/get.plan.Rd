@@ -57,26 +57,22 @@ get.plan(trt, k = trt, maxsub = 1000)
 
 
 \author{Oliver Sailer \email{sailer@statistik.uni-dortmund.de}}
-\note{  The "All combinations" approach requires the package gregmisc. }
+\note{  The "All combinations" approach requires the package \code{gtools}. }
 
 \section{Warning }{ 
- There are two possible problems with this implementation of the "Patterson" approach:
+ There is a possible problem with this implementation of the "Patterson" approach:
  
- For the construction of designs that combine BIBDs with Williams designs, the function \code{opttodes} is called. 
- \code{opttodes} requires the package \code{Dopt}. 
- As of May 13 2004, CRAN states that \code{Dopt} is a package in development and that such packages may be unstable.
- 
- Also note that if the necessary conditions for the existence of a BIBD are fulfilled, the "Patterson" approach
+ For the construction of designs that combine BIBDs with Williams designs, the function \code{find.BIB} is called
+ to search for a BIBD. If the necessary conditions for the existence of a BIBD are fulfilled, the "Patterson" approach
  always returns a design. This design will however not always be a BIBD! 
  When using the patterson approach, please check the reulting design for balance using \code{isGYD} and 
  \code{isCbalanced}.
  
- If you want to avoid loading \code{Dopt} or avoid getting a possibly unbalanced design, don't choose the menu option
- "Patterson". It should be noted that this is a computational problem only, not a problem of the theoretical
+ It should be noted that this is a computational problem only, not a problem of the theoretical
  approach of Patterson (1951). 
  }
 
-\seealso{ \code{\link{all.combin}}, \code{\link{balminRMD}}, \code{\link{des.MOLS}}, 
+\seealso{ \code{\link{all.combin}}, \code{\link{balmin.RMD}}, \code{\link{des.MOLS}}, 
   \code{\link{williams}}, \code{\link{williams.BIB}} }
 \examples{
 \dontrun{

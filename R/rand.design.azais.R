@@ -1,5 +1,5 @@
 "rand.design.azais" <-
-function( design, dat, n, where, tau1, rho ) { 
+function( design, dat, tau1, rho, n, where ) { 
 
   require(MASS)
   
