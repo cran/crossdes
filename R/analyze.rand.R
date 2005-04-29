@@ -81,22 +81,22 @@ function(where, fig=FALSE, ref=FALSE, refval=numeric(6), reftext="Reference Valu
  
     if (fig) {
       
-      x11()
+      get(getOption("device"))()
       qqnorm(vardiff,main=paste("Normal Q-Q Plot of var - vâr, case",i), pch=pch1, ...) 
                                                  # q-q-plot of the difference of variance estimates
                                                  
-      x11()
+      get(getOption("device"))()
       qqnorm(contrast, main =paste("Normal Q-Q Plot of tau_1 - tau_5, case",i),
        xlab = "Theoretical Quantiles", ylab = "Sample Quantiles", pch=pch2, ...)
                                                  # q-q-plot of the contrasts for all 6 cases 
                                                    
-      x11()
+      get(getOption("device"))()
       tcdf.plot(tstat,n,fg,paste("Empirical cumulative distribution function","\n","of the t-statistic, case",i),
        "x", col1=col1, col2=col2, ...)
                                                  # Comparison of the empirical CDF of the t-statistics
                                                  # with the CDF of the t distribution
                 
-      x11()
+      get(getOption("device"))()
       minmax <- sort(contrast)[c(1,n)]
       histogr <- invisible(  hist( contrast,sqrt(n)  )  ) 
       histogr <- hist( contrast,sqrt(n),main=paste("Histogram of the contrast, case",i) ,xlab="x",ylab="count", 
