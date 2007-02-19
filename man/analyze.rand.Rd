@@ -72,7 +72,12 @@ analyze.rand(where, fig = FALSE, ref = FALSE, refval = numeric(6),
 \references{ Bailey, R.A. and Rowley C.A. (1987): Valid randomization.
 Proceedings of the Royal Society London A 410, 105-124.
 
-Kunert, J. and Sailer, O. (2004): On nearly balanced designs for sensory trials. In preparation.}
+Kunert, J. and Sailer, O. (2006): On nearly balanced designs for sensory trials. Food Quality and Preference 17,
+219-227.
+
+Kunert, J. and Sailer, O. (2007): Randomization of neighbour balanced generalized Youden designs. 
+Journal of Statistical Planning and Inference 137, 2045-2055.}
+
 \author{ Oliver Sailer \email{sailer@statistik.uni-dortmund.de}}
 \note{ If \code{fig} is TRUE, 24 graphics windows are opened.}
 

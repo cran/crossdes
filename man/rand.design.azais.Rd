@@ -43,7 +43,8 @@ rand.design.azais(design, dat, tau1, rho, n, where)
  
  Bailey, R.A. and Rowley, C.A. (1987): Valid randomization. Proceedings of the Royal Society London A 410, 105-124. 
  
- Kunert, J. and Sailer, O. (2004): On nearly balanced designs for sensory trials. In preparation.
+ Kunert, J. and Sailer, O. (2006): On nearly balanced designs for sensory trials. Food Quality and Preference 17,
+ 219-227.
 }
 
 \author{Oliver Sailer \email{sailer@statistik.uni-dortmund.de}}

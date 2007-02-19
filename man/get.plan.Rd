@@ -6,7 +6,8 @@
 variables. It is assumed that each subject is assigned to each treatment at most once. A maximum number of 
 subjects in the study is also requested. Five possible construction methods available.
 These construction methods and the characteristics of the resulting designs are described in Wakeling and MacFie (1995).
-See also Jones and Kenward (1989), Ch. 5, for a discussion of these designs. }
+See also Jones and Kenward (1989), Ch. 5, for a discussion of these designs. The function is demonstrated in more detail 
+in Sailer (2005).}
 \usage{
 get.plan(trt, k = trt, maxsub = 1000, random = TRUE)
 }
@@ -50,6 +51,8 @@ get.plan(trt, k = trt, maxsub = 1000, random = TRUE)
             
   Patterson, H.D. (1952): The construction of balanced designs for experiments involving sequences of treatments. 
   Biometrika 39, 32-48.
+  
+  Sailer, O. (2005): crossdes: A package for design and randomization in crossover studies. Rnews 5, 24-27.  
   
   Wakeling, I.N. and MacFie, H.J.H. (1995): Designing consumer trials balanced for first and higher orders of
   carry-over effect when only a subset of k samples from t may be tested. Food Quality and Preference 6, 299-308. 

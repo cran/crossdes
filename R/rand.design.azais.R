@@ -19,7 +19,7 @@ function( design, dat, tau1, rho, n, where ) {
   
   fg  <- b*(k-1)-trt+1                           # Model degrees of freedom
 
-  tauhat    <- array(0,dim=c(n,trt,6))           # simulated tâu_1 , ..., tâu_t             
+  tauhat    <- array(0,dim=c(n,trt,6))           # simulated \hat{tau}_1 , ..., \hat{tau}_t             
   varhat    <- matrix(0,ncol=6,nrow=n)           # simulated estimates of var(tau_1 - tau_t)
  
 

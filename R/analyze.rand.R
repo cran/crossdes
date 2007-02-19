@@ -32,27 +32,27 @@ function(where, fig=FALSE, ref=FALSE, refval=numeric(6), reftext="Reference Valu
   s2teilcontrast <- matrix(0,6,n1)
   
   meanteilvar <- matrix(0,6,n1)                  # Average value of the variances in the subgroups
-  vardiff <- numeric(n1)                         # Estimate of the difference var(l'tâu)-E(vâr(l'tâu)) 
+  vardiff <- numeric(n1)                         # Estimate of the difference var(l'\hat{tau})-E(\hat{var}(l'\hat{tau})) 
   kivardiff <- numeric(3) 
    
   out1 <- matrix(0,nrow=6,ncol=5)
   rownames(out1) <- 1:6
-  colnames(out1) <- c("      No < qt", "  Level/Power", "   ave. l'tâu", "   compare to", "            Z")
+  colnames(out1) <- c("      No < qt", "  Level/Power", "ave. l'\hat{tau}", "   compare to", "            Z")
 
   out2 <- matrix(0,nrow=6,ncol=5)
   rownames(out2) <- 1:6
-  colnames(out2) <- c("  s^2 (l'tâu)", "     ave. vâr", "  lower bound", "mean(var-vâr)", "  upper bound")     
+  colnames(out2) <- c("s^2 (l'\hat{tau})", "ave. \hat{var}", "  lower bound", "mean(var-\hat{var})", "  upper bound")     
    
    
-  # Rearrange the data in the file. There are n entries for tâu_1 - tâu_t in Case 1, then there are 
-  # n entries for tâu_1 - tâu_t in Case 2 etc. The contrast estimates are followed by the varhat-values.
+  # Rearrange the data in the file. There are n entries for \hat{tau}_1 - \hat{tau}_t in Case 1, then there are 
+  # n entries for \hat{tau}_1 - \hat{tau}_t in Case 2 etc. The contrast estimates are followed by the varhat-values.
       
   for (i in 6:1){
     contrast <- a[ ((i-1)*n + 1) : ((i-1)*n + n) ] 
     varhat <- a[  (.5*(la-10) + (i-1)*n + 1) : (.5*(la-10) + (i-1)*n + n) ]
     tstat <- contrast / sqrt( varhat )           # Randomization t-statistics
     Z <- sqrt(n)*( mean(contrast)-refval[i] )/sqrt(var(contrast))                
-                   # is approx. standard normal, i.e. absolute value larger than 1.96 means signif. bias of l'tâu
+                   # is approx. standard normal, i.e. absolute value larger than 1.96 means signif. bias of l'\hat{tau}
                                        
     for (j in 1:n1){
       s2teilcontrast[i,j] <- var(contrast[((j-1)*100+1):((j-1)*100+100)])
@@ -60,15 +60,15 @@ function(where, fig=FALSE, ref=FALSE, refval=numeric(6), reftext="Reference Valu
                                                  # compute the empirical variance of the contrast estimates in each set.
                                     
       meanteilvar[i,j] <- mean(varhat[((j-1)*100+1):((j-1)*100+100)])   
-                                                 # same for the averages of vâr(l'tâu) in each subset
+                                                 # same for the averages of \hat{var}(l'\hat{tau}) in each subset
     } 
     
     vardiff <- (s2teilcontrast[i,]-meanteilvar[i,])  
    
     kivardiff <- c( mean(vardiff) - qt(.975,n1-1)*sqrt(var(vardiff)/n1), mean(vardiff),
       mean(vardiff) + qt(.975,n1-1)*sqrt(var(vardiff)/n1) )  
-                                                 # confidence interval for var-E(vâr) of the n1 subgroups
-                                                 # 1st column lower end, 2nd column estimate of var-E(vâr)
+                                                 # confidence interval for var-E(\hat{var}) of the n1 subgroups
+                                                 # 1st column lower end, 2nd column estimate of var-E(\hat{var})
                                                  # 3rd column upper end.
     
  # Tables of results
@@ -82,7 +82,7 @@ function(where, fig=FALSE, ref=FALSE, refval=numeric(6), reftext="Reference Valu
     if (fig) {
       
       get(getOption("device"))()
-      qqnorm(vardiff,main=paste("Normal Q-Q Plot of var - vâr, case",i), pch=pch1, ...) 
+      qqnorm(vardiff,main=paste("Normal Q-Q Plot of var - \hat{var}, case",i), pch=pch1, ...) 
                                                  # q-q-plot of the difference of variance estimates
                                                  
       get(getOption("device"))()
