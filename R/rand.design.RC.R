@@ -1,8 +1,5 @@
 "rand.design.RC" <-
 function( design, dat, tau1, rho, n, where ) { 
-
-  require(MASS)
-
   # Preliminary operations
                          
 

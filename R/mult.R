@@ -11,5 +11,5 @@ function(a,b){
   for (i in 1:lb){
     dummy[i:(i+la-1), i] <- a*b[i] 
   }
-  apply(dummy,1,sum)
+  rowSums(dummy)
 }

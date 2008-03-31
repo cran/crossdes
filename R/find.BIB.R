@@ -1,8 +1,5 @@
 "find.BIB" <-
 function( trt,b,k,iter=30 ){
-
- require(AlgDesign)
-
  i <- 0                             # initialise stop criterions i, BIB
  BIB <- FALSE
  

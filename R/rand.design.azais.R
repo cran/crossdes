@@ -1,8 +1,5 @@
 "rand.design.azais" <-
-function( design, dat, tau1, rho, n, where ) { 
-
-  require(MASS)
-  
+function( design, dat, tau1, rho, n, where ) {   
   # Preliminary operations 
                                             
   if(!is.matrix(design) || !is.numeric(design)){stop("Please check your design matrix")}
