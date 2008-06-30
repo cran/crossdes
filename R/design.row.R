@@ -26,7 +26,7 @@ function(d){
                                                  # TRUE if d is pairwise balanced
   type[4] <- ( k<trt )                           # TRUE, if d is incomplete w.r.t. rows
   type[5] <- ( k==trt )                          # TRUE, if d is complete w.r.t. rows
-  type[6] <- !any( as.vector(rinc) - rinc[1,1] ) # TRUE, if d is uniform on the rows
+  type[6] <- !any(as.logical( as.vector(rinc) - rinc[1,1] )) # TRUE, if d is uniform on the rows
   
 # Output
   

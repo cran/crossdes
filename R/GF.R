@@ -32,7 +32,7 @@ function(p,n){
        h[,i+1] <- (a + g[,n+1])%%p
      }
      
-     irr <- g[apply(h,1,all),,drop=FALSE]
+     irr <- g[!apply(h==0, 1, any), , drop = FALSE]
 
      # Get the primitive roots. For all polynomials compute : p^1,p^2,...,p^(ord-1).
      # Cycle is completed after at most ord-1 powers. If ord-1 powers are needed, a primitive root is found.

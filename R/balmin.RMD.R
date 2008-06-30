@@ -2,9 +2,9 @@
 function(trt,n,p){
 
 #check if input parameters make sense
-ifelse( any(c(trt,n,p)%%1 ), stop("Please check your design parameters."),
+ifelse( any(as.logical( c(trt,n,p)%%1 )), stop("Please check your design parameters."),
   ifelse( p>=trt, stop("Please check your design parameters."), lambda <- n/trt ))
-if( lambda%%1 ){stop("There is no balanced minimal RMD for these parameters.")}
+if( (lambda%%1) ){stop("There is no balanced minimal RMD for these parameters.")}
 if( lambda*(p-1) != (trt-1) ){stop("There is no balanced minimal RMD for these parameters.")}
 
 #construct c-vector that gives rise to a difference set

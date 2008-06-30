@@ -22,7 +22,7 @@ function( d, preperiod=FALSE ){
   
   cat("\n")
   
-  if( !any(diag(M)) && length(unique(as.vector(M-2*b*k*diag(trt))))==2 )
+  if( !any(as.logical(diag(M))) && length(unique(as.vector(M-2*b*k*diag(trt))))==2 )
     { balance <- TRUE
       cat("The design is (first order) carry-over balanced.", "\n","\n") 
     }
