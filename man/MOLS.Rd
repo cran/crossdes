@@ -32,7 +32,7 @@ MOLS(p, n, primpol = GF(p, n)[[2]][1, ])
   Street, A.P. and Street, D.J. (1987): Combinatorics of experimental design. Oxford University Press, Oxford.
 
 }
-\author{ Oliver Sailer \email{sailer@statistik.uni-dortmund.de}}
+\author{ Oliver Sailer }
 
 
 \seealso{  \code{\link{des.MOLS}} }

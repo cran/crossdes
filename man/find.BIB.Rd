@@ -19,7 +19,7 @@ find.BIB(trt, b, k, iter = 30)
   The function \code{optBlock} tries to find a D-optimal block design for the specified parameters.
   The resulting design need not be a BIBD. 
   The necessary conditions for the existence are that \eqn{\frac{bk}{trt}}{bk/trt} and 
-   \eqn{\frac{bk(k-1)}{trt(trt-1)}}{bk(k-1)/(trt(trt-1))} positive intergers.
+   \eqn{\frac{bk(k-1)}{trt(trt-1)}}{bk(k-1)/(trt(trt-1))} positive integers.
   They are NOT checked automatically.
   Even if they are fulfilled, there need not be a BIBD.  
   If no BIBD is found, the function is iterated.
@@ -32,7 +32,7 @@ find.BIB(trt, b, k, iter = 30)
 \references{ 
   Wheeler, R.E. (2004). optBlock. AlgDesign. The R project for statistical computing http://www.r-project.org/ 
 }
-\author{Oliver Sailer \email{sailer@statistik.uni-dortmund.de}}
+\author{Oliver Sailer }
 \note{ As indicated above, the returned design is not necessarily a BIBD design.}
 
 \seealso{ \code{\link{get.plan}}, \code{\link[AlgDesign]{optBlock}}}

@@ -33,7 +33,7 @@ Wakeling, I.N. and MacFie, H.J.H. (1995): Designing consumer trials balanced for
 Williams, E. J. (1949): Experimental designs balanced for the estimation of residual effects
 of treatments. Australian Journal of Scientific Research, Ser. A 2, 149-168. 
 }
-\author{ Oliver Sailer \email{sailer@statistik.uni-dortmund.de}}
+\author{ Oliver Sailer }
 %\note{ Requires the package \code{conf.design} to check whether the number of treatments is a prime power. }
 %
 

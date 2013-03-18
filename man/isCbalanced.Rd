@@ -29,7 +29,7 @@ isCbalanced(d, preperiod = FALSE)
   treatment \eqn{i}{i} preceeds treatment \eqn{j}{j}.}
 }
 
-\author{ Oliver Sailer \email{sailer@statistik.uni-dortmund.de} }
+\author{ Oliver Sailer  }
 
 \seealso{ \code{\link{isGYD}} }
 \examples{

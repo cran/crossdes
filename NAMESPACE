@@ -1,7 +1,6 @@
 importFrom("AlgDesign", "optBlock")
 importFrom("gtools", "permutations")
-importFrom("MASS", "ginv")
 
-export(all.combin, analyze.rand, balmin.RMD, des.MOLS, 
-    find.BIB, get.plan, isCbalanced, isGYD, MOLS, rand.design.azais,
-    rand.design.RC, williams.BIB, williams)
+export(allcombs, balmin.RMD, des.MOLS, 
+       find.BIB, get.plan, isCbalanced, isGYD, MOLS,
+       williams.BIB, williams)

@@ -31,7 +31,7 @@ balmin.RMD(trt, n, p)
              
  Wakeling, I.N. and MacFie, H.J.H. (1995): Designing consumer trials balanced for first and higher orders of
  carry-over effect when only a subset of k samples from t may be tested. Food Quality and Preference 6, 299-308. }
-\author{ Oliver Sailer \email{sailer@statistik.uni-dortmund.de}}
+\author{ Oliver Sailer }
 
 
 \seealso{ \code{\link{get.plan}} }

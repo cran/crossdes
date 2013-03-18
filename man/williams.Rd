@@ -30,7 +30,7 @@ Williams, E. J. (1949): Experimental designs balanced for the estimation of resi
 of treatments. Australian Journal of Scientific Research, Ser. A 2, 149-168. 
 }
 
-\author{ Oliver Sailer \email{sailer@statistik.uni-dortmund.de}}
+\author{ Oliver Sailer }
 
 \seealso{ \code{\link{get.plan}} }
 \examples{

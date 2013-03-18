@@ -1,0 +1,5 @@
+* Title in the future: Construction and comparison of crossover designs
+* Add a XOdesign class
+* Add function to generate design matrix from XOdesign object
+* Add B's code to compare designs (based on average A-optimality)
+* Add B's catalogue of XOdesigns to the package

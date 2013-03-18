@@ -30,7 +30,7 @@ Society B 13, 256-271.
 Wakeling, I.N. and MacFie, H.J.H. (1995): Designing consumer trials balanced for first and higher orders of
 carry-over effect when only a subset of k samples from t may be tested. Food Quality and Preference 6, 299-308. 
 }
-\author{ Oliver Sailer \email{sailer@statistik.uni-dortmund.de}}
+\author{ Oliver Sailer }
 \note{  BIBDs may be generated using \code{find.BIB}. }
 
 \section{Warning }{ The resultig design is only balanced properly if the input design actually is a BIBD.

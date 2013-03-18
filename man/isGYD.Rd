@@ -34,7 +34,7 @@ isGYD(d, tables=FALSE, type=TRUE)
   A list containing information about balance in rows and columns as well as incidence and concurrence matrices
   for the design.}
 
-\author{Oliver Sailer \email{sailer@statistik.uni-dortmund.de}}
+\author{Oliver Sailer }
 
 \seealso{ \code{\link{isCbalanced}} }
 \examples{

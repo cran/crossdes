@@ -5,8 +5,6 @@
 \alias{GF}
 \alias{mult}
 \alias{Q.t}
-\alias{random.AZ}
-\alias{random.RT}
 \alias{redu}
 \alias{redu.modp}
 \alias{tcdf.plot}
@@ -14,6 +12,6 @@
 \title{ Internal Functions in crossdes }
 \description{
   For internal use only.}
-\author{ Oliver Sailer \email{sailer@statistik.uni-dortmund.de}}
+\author{ Oliver Sailer }
 
 \keyword{internal}

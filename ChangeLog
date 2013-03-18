@@ -1,0 +1,6 @@
+2013-03-XX Bjoern Bornkamp (version 1.1-1)
+      * Re-upload to CRAN with new maintainer. Minor changes to get the
+	package back on CRAN, minor stylistic changes. In addition removed
+	functionality that were a little off-topic for the main theme
+	of the package (mainly randomization related functions).
+	
