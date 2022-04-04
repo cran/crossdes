@@ -1,6 +1,9 @@
 importFrom("AlgDesign", "optBlock")
 importFrom("gtools", "permutations")
+importFrom("utils", "menu")
 
 export(allcombs, balmin.RMD, des.MOLS, 
        find.BIB, get.plan, isCbalanced, isGYD, MOLS,
        williams.BIB, williams)
+
+
